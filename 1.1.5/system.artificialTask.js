@@ -59,7 +59,7 @@ var systemArtificialTask = {
         //#7 升级控制器任务1
         taskUpgrad.run(7, controllerUpgrader1, containerUpgrader1, {x:20,y:28});
         //#8 升级控制器任务2
-        //taskUpgrad.run(8, controllerUpgrader1, containerUpgrader1, {x:19,y:29});
+        taskUpgrad.run(8, controllerUpgrader1, containerUpgrader1, {x:19,y:29});
         
 	}
 };

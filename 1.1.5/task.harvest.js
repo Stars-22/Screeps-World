@@ -53,8 +53,8 @@ var taskHarvest = {
                 var haveQueueSpawn = false;
                 for(var i=0; i<taskQueueSpawn.length; i++) {
                     //是否已在队列中存在
-                    var rule = taskQueueSpawn[i].memory.memory.role;
-                    if(rule == 'harvester' + num){
+                    var role = taskQueueSpawn[i].memory.memory.role;
+                    if(role == 'harvester' + num){
                         haveQueueSpawn = true;
                     }
                 }
@@ -85,8 +85,8 @@ var taskHarvest = {
             var haveQueueSpawn = false;
             for(var i=0; i<taskQueueSpawn.length; i++) {
                 //是否已在队列中存在
-                var name = taskQueueSpawn[i].name;
-                if(name == 'carrier' + num){
+                var role = taskQueueSpawn[i].memory.memory.role;
+                if(role == 'carrier' + num){
                     haveQueueSpawn = true;
                 }
             }

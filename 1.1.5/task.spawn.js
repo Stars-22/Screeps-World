@@ -15,7 +15,7 @@ var taskSpawn = {
         if(taskQueueSpawn.length != 0){
             //如果孵化任务队列不为空 -> 打印队列
             for(var i=0; i<taskQueueSpawn.length; i++){
-                console.log('孵化器 "'+nameSpawn +'" 队列'+i+' : '+taskQueueSpawn[0].memory.memory.role);
+                console.log('孵化器 "'+nameSpawn +'" 队列'+i+' : '+taskQueueSpawn[i].memory.memory.role);
             }
             //尝试孵化
             if(Game.spawns[nameSpawn].spawnCreep(
@@ -24,6 +24,17 @@ var taskSpawn = {
                 taskQueueSpawn[0].memory) == 0){
                 //如果孵化成功 -> 打印、出列
                 console.log('Spawning new creep: ' + taskQueueSpawn[0].name);
+                taskQueueSpawn.pop();
+            }
+            else if(Game.spawns[nameSpawn].spawnCreep(
+                taskQueueSpawn[0].module,
+                taskQueueSpawn[0].name, 
+                taskQueueSpawn[0].memory) == -3){
+                //如果重名 -> 跳过此孵化任务
+                console.log('此处重名，孵化已跳过' + taskQueueSpawn[0].name);
+                Game.notify('孵化失败，原因重名，详情：' +
+                    '\nname: ' + taskQueueSpawn[0].name +
+                    '\nrole: ' + taskQueueSpawn[0].memory.memory.role)
                 taskQueueSpawn.pop();
             }
         }
